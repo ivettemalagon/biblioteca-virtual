@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Virtual</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="menu-bar">
+        <img src="imagenes/logo.png" alt="Logo" class="logo">
+        <button class="menu-button" onclick="showSection('home')">Inicio</button>
+        <button class="menu-button" onclick="showSection('literature')">Literatura</button>
+        <button class="menu-button" onclick="showSection('academics')">Académicos</button>
+        <button class="menu-button" onclick="showSection('stories')">Cuentos</button>
+        <button class="menu-button" onclick="showSection('articles')">Artículos</button>
+        <button class="menu-button" onclick="showSection('cart')">Carrito de Compras</button>
+        <button class="menu-button" onclick="redirectToLogin()">Ingresar</button>
+    </div>
+    <div class="search-bar">
+        <input type="text" id="buscar" placeholder="Buscar libros...">
+        <button onclick="buscar()"><i class="fas fa-search"></i></button>
+        <button onclick="redirectToAdvancedSearch()" class="advanced-search-button">Búsqueda Avanzada</button>
+    </div>
+    <div id="book-description" class="content-section" style="display: none;">
+        <h1>Descripción del Libro</h1>
+        <p id="description-text">Haz clic en un libro para ver su descripción.</p>
+        <button id="go-to-book-button" class="menu-button">Ir al libro</button>
+        <button id="buy-book-button" class="menu-button">Comprar</button>
+        <button id="add-to-cart-button" class="menu-button">Agregar al carrito</button>
+        <button class="menu-button" onclick="hideDescription()">Volver</button>
+    </div>
+    <div id="home" class="content-section">
+        <h1>Libros</h1>
+        <div id="book-container" class="book-container"></div>
+    </div>
+    <div id="cart" class="content-section">
+        <div class="carritocomp">
+            <div class="header-carrito">
+                <h2>Tu Carrito</h2>
+            </div>
+            <div class="carrito-items">
+                <ul id="cart-items"></ul>
+            </div>
+            <div class="carrito-total">
+                <div class="fila">
+                    <strong>Total</strong>
+                    <span id="total-price" class="carrito-precio-total">$0</span>
+                </div>
+                <button class="btn-pagar" onclick="checkout()">Pagar <i class="fa-solid fa-lock"></i></button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
